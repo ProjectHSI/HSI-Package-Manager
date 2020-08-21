@@ -1,14 +1,18 @@
 {
   "name": "hsipm",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "The Package Manager for HSI Modules and Addons.",
-  "main": "bin/hpmmodule.js",
+  "main": "./bin/hpmmodule.js",
+  "preferGlobal": true,
   "scripts": {
     "test": "echo \"There is no test command. So no.\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ProjectHSI/HSI-Package-Manager.git"
+  },
+  "bin": {
+    "hpm": "./bin/hpmmodule.js"
   },
   "keywords": [
     "Package",
