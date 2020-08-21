@@ -1,0 +1,25 @@
+{
+  "name": "hpm",
+  "version": "0.0.1",
+  "description": "The Package Manager for HSI Modules and Addons.",
+  "main": "hpmmodule.js",
+  "scripts": {
+    "test": "echo \"There is no test command. So no.\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectHSI/HSI-Package-Manager.git"
+  },
+  "keywords": [
+    "Package",
+    "Manager",
+    "Package",
+    "Manager"
+  ],
+  "author": "[Project HSI]",
+  "license": "SEE LICENSE IN LICENSE.NJSLICENSE",
+  "bugs": {
+    "url": "https://github.com/ProjectHSI/HSI-Package-Manager/issues"
+  },
+  "homepage": "https://github.com/ProjectHSI/HSI-Package-Manager#readme"
+}
