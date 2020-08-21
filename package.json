@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/ProjectHSI/HSI-Package-Manager/issues"
   },
-  "homepage": "https://github.com/ProjectHSI/HSI-Package-Manager#readme"
+  "homepage": "https://github.com/ProjectHSI/HSI-Package-Manager#readme",
+  "dependencies": {
+    "npmlog": "^4.1.2"
+  }
 }
