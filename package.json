@@ -2,7 +2,7 @@
   "name": "hpm",
   "version": "0.0.1",
   "description": "The Package Manager for HSI Modules and Addons.",
-  "main": "hpmmodule.js",
+  "main": "bin/hpmmodule.js",
   "scripts": {
     "test": "echo \"There is no test command. So no.\""
   },
