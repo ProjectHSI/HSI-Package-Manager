@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const npmlog = require('npmlog');
-npmlog.info("HPM","Welcome to HPM!")
-npmlog.info("HPM","It worked if it ends with ok.")
-npmlog.info("HPM",process.argv)
+npmlog.info("HPM", "Welcome to HPM!")
+npmlog.info("HPM", "It worked if it ends with ok.")
+npmlog.info("HPM", process.argv.toString())
 switch (process.argv[2]) {
     case "install":
         npmlog.info("HPM","You are installing from the public REPO.")
