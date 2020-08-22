@@ -1,6 +1,6 @@
 {
   "name": "hsipm",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The Package Manager for HSI Modules and Addons.",
   "main": "./PRGM/bin/hpmprogrammodule.js",
   "preferGlobal": true,
