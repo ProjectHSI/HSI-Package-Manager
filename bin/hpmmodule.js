@@ -19,9 +19,8 @@ switch (process.argv[2]) {
         switch (process.argv[3]) {
             case "DroppyAddon":
                 npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
-                const nfetch = require("node-fetch")
-	            const response = nfetch('https://github.com/');
-	            const body = response.text()
+                const nfetch = require("node-fetch").then(res => res.text())
+                .then(body => console.log(body));
                 console.log(body)
                 break;
         }
