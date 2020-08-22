@@ -43,12 +43,11 @@ switch (process.argv[2]) {
                         const nfetch = require("node-fetch")
                         const fetch = require('node-fetch');
 
-                        async () => {
-	                        const response = await fetch('https://github.com/');
-	                        const body = await response.text();
+                        
+	                    const response = fetch('https://github.com/');
+	                    const body = response.text();
 
 	                    console.log(body);
-                        };
                     }
                 }
         }
