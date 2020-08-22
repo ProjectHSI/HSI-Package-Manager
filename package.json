@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/ProjectHSI/HSI-Package-Manager#readme",
   "dependencies": {
+    "gauge": "^3.0.0",
     "node-fetch": "^2.6.0",
     "npmlog": "^4.1.2",
     "update-notifier": "^4.1.1"
