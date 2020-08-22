@@ -2,7 +2,7 @@
   "name": "hsipm",
   "version": "0.0.4",
   "description": "The Package Manager for HSI Modules and Addons.",
-  "main": "./bin/hpmmodule.js",
+  "main": "./PRGM/bin/hpmprogrammodule.js",
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"There is no test command. So no.\""
