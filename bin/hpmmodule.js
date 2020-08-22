@@ -40,6 +40,10 @@ switch (process.argv[2]) {
                 const bar = gauge(process.stdout)
                 bar.enable()
                 bar.show()
+                bar.setWidth(100)
+                setInterval(() => {
+                    bar.pulse()
+                }, 100)
                 npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
                 if (args[4] != undefined) {
                     if (fs.existsSync(`${process.argv[4]}/node_modules/droppy`)) {
