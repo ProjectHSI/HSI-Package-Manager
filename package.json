@@ -5,7 +5,8 @@
   "main": "./PRGM/bin/hpmprogrammodule.js",
   "preferGlobal": true,
   "scripts": {
-    "test": "echo \"There is no test command. So no.\""
+    "test": "echo \"There is no test command. So no.\"",
+    "postinstall": "cd bin && node postinstall.js"
   },
   "repository": {
     "type": "git",
