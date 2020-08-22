@@ -6,7 +6,7 @@ npmlog.info("HPM", "It worked if it ends with ok.")
 npmlog.info("HPM", process.argv)
 
 const updateNotifier = require('update-notifier');
-const pkg = require('./package.json');
+const pkg = require('./../package.json');
  
 // Checks for available update and returns an instance
 const notifier = updateNotifier({pkg});
