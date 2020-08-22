@@ -38,7 +38,7 @@ switch (process.argv[2]) {
         switch (process.argv[3]) {
             case "DroppyAddon":
                 npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
-                if (args[4] != undefined) {
+                if (process.argv[4] != undefined) {
                     if (fs.existsSync(`${process.argv[4]}/node_modules/droppy`)) {
                         const nfetch = require("node-fetch")
                         const fetch = require('node-fetch');
