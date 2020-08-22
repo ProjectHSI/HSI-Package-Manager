@@ -25,6 +25,10 @@ console.log(notifier.update);
 }
 */
 
+const fs = require("fs")
+
+const gauge = require("gauge")
+
 switch (process.argv[2]) {
     case "install":
         npmlog.info("HPM","You are installing from the public REPO.")
@@ -33,7 +37,23 @@ switch (process.argv[2]) {
         npmlog.info("HPM",`You may see extra logs info if you activated --verbose.`)
         switch (process.argv[3]) {
             case "DroppyAddon":
+                const bar = gauge(process.stdout)
+                bar.enable()
+                bar.show()
                 npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
+                if (args[4] != undefined) {
+                    if (fs.existsSync(`${process.argv[4]}/node_modules/droppy`)) {
+                        const nfetch = require("node-fetch")
+                        const fetch = require('node-fetch');
+
+                        async () => {
+	                        const response = await fetch('https://github.com/');
+	                        const body = await response.text();
+
+	                    console.log(body);
+                        };
+                    }
+                }
         }
         break;
 }
