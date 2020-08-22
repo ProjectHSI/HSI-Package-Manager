@@ -4,26 +4,7 @@ const npmlog = require('npmlog');
 npmlog.info("HPM", "Welcome to HPM!")
 npmlog.info("HPM", "It worked if it ends with ok.")
 npmlog.info("HPM", process.argv)
-
-const updateNotifier = require('update-notifier');
 const pkg = require('./../package.json');
- 
-// Checks for available update and returns an instance
-const notifier = updateNotifier({pkg});
- 
-// Notify using the built-in convenience method
-notifier.notify();
- 
-// `notifier.update` contains some useful info about the update
-console.log(notifier.update);
-/*
-{
-    latest: '1.0.1',
-    current: '1.0.0',
-    type: 'patch', // Possible values: latest, major, minor, patch, prerelease, build
-    name: 'pageres'
-}
-*/
 
 const fs = require("fs")
 
@@ -38,18 +19,11 @@ switch (process.argv[2]) {
         switch (process.argv[3]) {
             case "DroppyAddon":
                 npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
-                if (process.argv[4] != undefined) {
-                    if (fs.existsSync(`${process.argv[4]}/node_modules/droppy`)) {
-                        const nfetch = require("node-fetch")
-                        const fetch = require('node-fetch');
-
-                        
-	                    const response = fetch('https://github.com/');
-	                    const body = response.text();
-
-	                    console.log(body);
-                    }
-                }
+                const nfetch = require("node-fetch")
+	            const response = nfetch('https://github.com/');
+	            const body = response.text()
+                console.log(body)
+                break;
         }
         break;
 }
