@@ -27,7 +27,7 @@ console.log(notifier.update);
 
 const fs = require("fs")
 
-const gauge = require("gauge")
+const Gauge = require("bar")
 
 switch (process.argv[2]) {
     case "install":
@@ -37,13 +37,13 @@ switch (process.argv[2]) {
         npmlog.info("HPM",`You may see extra logs info if you activated --verbose.`)
         switch (process.argv[3]) {
             case "DroppyAddon":
-                const bar = gauge(process.stdout)
-                bar.enable()
-                bar.show()
-                bar.setWidth(100)
-                setInterval(() => {
-                    bar.pulse()
-                }, 100)
+                const bar = Gauge(process.stdout)
+                bar.show("working…", 0)
+                setTimeout(() => { bar.pulse(); bar.show("working…", 0.25) }, 500)
+                setTimeout(() => { bar.pulse(); bar.show("working…", 0.50) }, 1000)
+                setTimeout(() => { bar.pulse(); bar.show("working…", 0.75) }, 1500)
+                setTimeout(() => { bar.pulse(); bar.show("working…", 0.99) }, 2000)
+                setTimeout(() => bar.hide(), 2300)
                 npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
                 if (args[4] != undefined) {
                     if (fs.existsSync(`${process.argv[4]}/node_modules/droppy`)) {
