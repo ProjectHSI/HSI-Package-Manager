@@ -33,7 +33,7 @@ switch (process.argv[2]) {
         npmlog.info("HPM",`You may see extra logs info if you activated --verbose.`)
         switch (process.argv[3]) {
             case "DroppyAddon":
-                npmlog.info("HPM",`Installing the Droppy addon which`)
+                npmlog.info("HPM",`Installing the Droppy addon which can provide more information about your Droppy configuration on startup.`)
         }
         break;
 }
