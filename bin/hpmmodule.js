@@ -27,7 +27,7 @@ console.log(notifier.update);
 
 const fs = require("fs")
 
-const Gauge = require("bar")
+const Gauge = require("gauge")
 
 switch (process.argv[2]) {
     case "install":
