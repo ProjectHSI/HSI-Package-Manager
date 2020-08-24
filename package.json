@@ -1,11 +1,12 @@
 {
-  "name": "hsipm",
-  "version": "0.2.0",
+  "name": "projecthsinpmorg@hsipm",
+  "version": "0.3.0",
   "description": "The Package Manager for HSI Modules and Addons.",
   "main": "./PRGM/bin/hpmprogrammodule.js",
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"There is no test command. So no.\"",
+    "postinstall": "cd bin && node postinstall.js",
     "postinstall": "cd bin && node postinstall.js"
   },
   "repository": {
@@ -13,13 +14,13 @@
     "url": "git+https://github.com/ProjectHSI/HSI-Package-Manager.git"
   },
   "bin": {
-    "hpm": "./bin/hpmmodule.js"
+    "hpm": "./bin/hpmmodule.js",
+    "hsipm": "./bin/hsipmwrongcommand"
   },
   "keywords": [
     "Package",
     "Manager",
-    "Package",
-    "Manager"
+    "PackageManager"
   ],
   "author": "[Project HSI]",
   "license": "SEE LICENSE IN LICENSE.NJSLICENSE",
