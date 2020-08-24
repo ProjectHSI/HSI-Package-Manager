@@ -1,5 +1,5 @@
 {
-  "name": "projecthsinpmorg@hsipm",
+  "name": "@projecthsinpmorg/hsipm",
   "version": "0.3.0",
   "description": "The Package Manager for HSI Modules and Addons.",
   "main": "./PRGM/bin/hpmprogrammodule.js",
@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"There is no test command. So no.\"",
     "postinstall": "cd bin && node postinstall.js",
-    "postinstall": "cd bin && node postinstall.js"
+    "prepublish": "cd bin && node prepublish.js"
   },
   "repository": {
     "type": "git",
