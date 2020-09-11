@@ -8,6 +8,7 @@ npmlog.info("HPM", process.argv)
 const pkg = require('./../package.json');
 
 process.on("SIGINT", () => {
+    npmlog.info("HPM", "ok")
     npmlog.info("Closing...")
     process.exit(0)
 })
@@ -63,7 +64,10 @@ switch (process.argv[2]) {
                 .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/rpc"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.info("HPM", "Done Installing Files. NPM Install will take care of the installing modules.")
-                cp.execSync("npm install", { cwd: "~/AppData/Roaming/HPM/RPC/" }) 
+                cp.execSync("npm install", { cwd: "~/AppData/Roaming/HPM/RPC/" })
+                AreWeThereTracker.completeWork(1)
+                npmlog.info("HPM", "And we are done!")
+                process.emit("SIGINT")
                 break;
         }
         } else {
@@ -81,5 +85,6 @@ switch (process.argv[2]) {
             recursive: true
         })
         AreWeThereTracker.completeWork(1)
+        process.emit("SIGINT")
         break;
 }
