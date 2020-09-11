@@ -65,7 +65,9 @@ switch (process.argv[2]) {
                 .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/rpc"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.info("HPM", "Done Installing Files. NPM Install will take care of the installing modules.")
-                cp.execSync("npm install", { cwd: "~/AppData/Roaming/HPM/RPC/" })
+                cp.spawnSync("npm", [ "install" ], {
+                    cwd: "~/AppData/Roaming/HPM"
+                })
                 AreWeThereTracker.completeWork(1)
                 npmlog.info("HPM", "And we are done!")
                 process.emit("SIGINT")
