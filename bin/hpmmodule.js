@@ -9,6 +9,7 @@ npmlog.info("HPM", process.argv)
 const pkg = require('./../package.json');
 
 process.on("SIGINT", () => {
+    npmlog.disableProgress()
     npmlog.info("HPM", "ok")
     npmlog.info("Closing...")
     process.exit(0)
@@ -35,42 +36,43 @@ switch (process.argv[2]) {
                 npmlog.enableProgress()
                 var AreWeThereTracker = npmlog.newItem("TotalWork", 7, 1)
                 npmlog.http("HPM", "Downloading and installing main.js")
-                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/main.js')
+                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/main.js')
                 .then(res => res.text())
                 .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/main.js"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing package.json")
-                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/package.json')
+                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/package.json')
                 .then(res => res.text())
                 .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/package.json"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing package-lock.json aka npm-shrinkwrap.json")
-                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/npm-shrinkwrap.json')
+                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/npm-shrinkwrap.json')
                 .then(res => res.text())
                 .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/npm-shrinkwrap.json"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc.ps1")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.ps1')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/rpc.ps1"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.ps1"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc.cmd")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.cmd')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/rpc.cmd"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.cmd"));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc [Shell Script]")
-                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc')
+                nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.sh')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/rpc"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.sh"));
                 AreWeThereTracker.completeWork(1)
-                npmlog.info("HPM", "Done Installing Files. NPM Install will take care of the installing modules.")
-                cp.spawnSync("npm", [ "install" ], {
-                    cwd: "~/AppData/Roaming/HPM"
-                })
-                AreWeThereTracker.completeWork(1)
-                npmlog.info("HPM", "And we are done!")
-                process.emit("SIGINT")
+                npmlog.info("HPM", "Done Installing Files. NPM Install will take care of the installing modules. Naviagte to ~/AppData/Roaming/HPM/RPC. And Run npm install")
+                setInterval(() => {
+                    if (fs.existsSync("~/AppData/Roaming/HPM/RPC/node_modules")) {
+                        AreWeThereTracker.completeWork(1)
+                        npmlog.info("HPM", "And we are done!")
+                        process.emit("SIGINT")
+                    }
+                }, 20000)
                 break;
         }
         } else {
