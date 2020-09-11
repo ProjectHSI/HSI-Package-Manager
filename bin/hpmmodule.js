@@ -38,32 +38,32 @@ switch (process.argv[2]) {
                 npmlog.http("HPM", "Downloading and installing main.js")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/main.js')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/main.js"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/main.js"), body);
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing package.json")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/package.json')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/package.json"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/package.json"), body);
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing package-lock.json aka npm-shrinkwrap.json")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/npm-shrinkwrap.json')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/npm-shrinkwrap.json"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/npm-shrinkwrap.json", body));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc.ps1")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.ps1')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.ps1"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.ps1", body));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc.cmd")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.cmd')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.cmd"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.cmd", body));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc [Shell Script]")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.sh')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.sh"));
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.sh"), body);
                 AreWeThereTracker.completeWork(1)
                 npmlog.info("HPM", "Done Installing Files. NPM Install will take care of the installing modules. Naviagte to ~/AppData/Roaming/HPM/RPC. And Run npm install")
                 setInterval(() => {
