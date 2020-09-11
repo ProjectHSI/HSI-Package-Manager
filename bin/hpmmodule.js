@@ -32,18 +32,18 @@ switch (process.argv[2]) {
         switch (process.argv[3]) {
             case "DroppyAddon":
                 npmlog.info("HPM",`Installing the Rich Persence Custom Module Pack. Which can be run from the command line allowing you to use Discord's Rich Presence with custom settings.`)
-                const nfetch = require("node-fetch")
+                var nfetch = require('node-fetch');
                 npmlog.enableProgress()
                 var AreWeThereTracker = npmlog.newItem("TotalWork", 7, 1)
                 npmlog.http("HPM", "Downloading and installing main.js")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/main.js')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/main.js"), body);
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/main.js", body));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing package.json")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/package.json')
                 .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/package.json"), body);
+                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/RPC/package.json", body));
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing package-lock.json aka npm-shrinkwrap.json")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/RPC/npm-shrinkwrap.json')
@@ -62,8 +62,7 @@ switch (process.argv[2]) {
                 AreWeThereTracker.completeWork(1)
                 npmlog.http("HPM", "Downloading and installing rpc [Shell Script]")
                 nfetch('https://raw.githubusercontent.com/ProjectHSI/HSI-Modules-Packages/master/RPC/rpc.sh')
-                .then(res => res.text())
-                .then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.sh"), body);
+                .then(res => res.text()).then(body => fs.writeFileSync("~/AppData/Roaming/HPM/rpc.sh"), body);
                 AreWeThereTracker.completeWork(1)
                 npmlog.info("HPM", "Done Installing Files. NPM Install will take care of the installing modules. Naviagte to ~/AppData/Roaming/HPM/RPC. And Run npm install")
                 setInterval(() => {
