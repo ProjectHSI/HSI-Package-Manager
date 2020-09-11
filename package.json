@@ -15,7 +15,7 @@
   },
   "bin": {
     "hpm": "./bin/hpmmodule.js",
-    "hsipm": "./bin/hsipmwrongcommand"
+    "hsipm": "./bin/hsipmwrongcommand.js"
   },
   "keywords": [
     "Package",
